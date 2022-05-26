@@ -1,7 +1,12 @@
 VideoCapture
 =============
-Captures the video from the camera to a mp4 file.
+.. argparse::
+	:module: spvideoutils.video_capture
+	:func: create_parser
+	:prog: video_capture
 
+Contents
+---------
 .. automodule:: spvideoutils.video_capture
 	:members:
 	:undoc-members:

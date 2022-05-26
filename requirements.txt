@@ -34,13 +34,14 @@ rich==12.4.4
 six==1.16.0
 snowballstemmer==2.2.0
 Sphinx==4.5.0
+sphinx-argparse==0.3.1
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-devhelp==1.0.2
 sphinxcontrib-htmlhelp==2.0.0
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
--e git+https://github.com/sanjeevs/spvideoutils.git@23289e95942ba6afe4c6a017753123bf084c88a4#egg=spvideoutils
+-e git+https://github.com/sanjeevs/spvideoutils.git@a1241fe70a10d84caef3fd9aab98e31beab232cc#egg=spvideoutils
 tomli==2.0.1
 twine==4.0.0
 urllib3==1.26.9
