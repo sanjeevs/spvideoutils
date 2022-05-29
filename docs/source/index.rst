@@ -5,30 +5,29 @@
 
 Welcome to spvideoutils documentation!
 ========================================
-Is a collection of useful scripts for handling the camera.
+Is a collection of useful scripts for capturing video using my usb camera and manipulating the video files.
 
 Scripts
 --------
-- video_capture
-   * Captures the video from the camera to a mp4 file.
-
-- video_split
-   * Splits the mp4 video file to frames stored as png files.
-
-- video_merge
-   * Merges the frames in png file to mp4 file.
-
-- video_crop
-   * Crops the video mp4 file from frame i to frame j.
-
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   camera
    video_capture
-   
+   video_crop
+   video_merge
+   video_split
+
+Helper Classes
+----------------
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   camera
+   video
+
 Indices and tables
 ==================
 

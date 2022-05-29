@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="spvideoutils",
-    version="0.0.1",
+    version="0.0.2",
     description="Scripts for saving and splitting video files for other projects",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -23,7 +23,9 @@ setup(
     entry_points={
         'console_scripts' : [
             'video_capture=spvideoutils.video_capture:main',
-            'video_split=spvideoutils.video_split:main'
+            'video_split=spvideoutils.video_split:main',
+            'video_merge=spvideoutils.video_merge:main',
+            'video_crop=spvideoutils.video_crop:main'
         ]
     },
     install_requires = ['opencv-python'],
