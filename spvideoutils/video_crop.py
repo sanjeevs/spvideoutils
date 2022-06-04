@@ -15,7 +15,7 @@ from spvideoutils import utils
 
 def create_parser():
     """Command line parser."""
-    parser = argparse.ArgumentParser(description="Crop the video between 2 frames.")
+    parser = argparse.ArgumentParser(description="Crop the video between 2 frames and write to new mp4 file")
     parser.add_argument(
         "--start", "-s", default=0, type=int, help="Starting frame idx in video."
     )
@@ -24,6 +24,9 @@ def create_parser():
     )
     parser.add_argument(
         "--out", "-o", default="crop.mp4", type=str, help="Output cropped video file name."
+    )
+    parser.add_argument(
+        "--interactive", "-i", default=False, action='store_true', help="Start in interactive mode"
     )
     parser.add_argument("videofile", type=str, help="Input video mp4 file.")
 
@@ -62,30 +65,32 @@ def main():
     """Main program."""
     opt = create_parser().parse_args()
 
-    if opt.end == -1:
+    if opt.interactive:
         (start_idx, end_idx) = do_interactive_frame_sel(opt.videofile)
     else:
-        (start_idx, end_idx) = (arg.start, arg.end)
+        (start_idx, end_idx) = (opt.start, opt.end)
 
-    if end_idx != -1:
-        print(
-            f">>Crop the video from frame idx {start_idx} to {end_idx} to '{opt.out}' file"
-        )
-        in_video = spvideoutils.video.Splitter(opt.videofile)
+    in_video = spvideoutils.video.Splitter(opt.videofile)
+    if end_idx == -1:
+        end_idx = in_video.num_frames()
 
-        out_video = cv2.VideoWriter(
-            opt.out,
-            cv2.VideoWriter_fourcc(*"mp4v"),
-            in_video.fps(),
-            (in_video.width(), in_video.height()),
-        )
+    print(
+        f">>Crop the video from frame idx {start_idx} to {end_idx} to '{opt.out}' file"
+    )
 
-        for idx, frame in enumerate(in_video):
-            if idx >= start_idx and idx <= end_idx:
-                out_video.write(frame)
+    out_video = cv2.VideoWriter(
+        opt.out,
+        cv2.VideoWriter_fourcc(*"mp4v"),
+        in_video.fps(),
+        (in_video.width(), in_video.height()),
+    )
 
-        del in_video
-        del out_video
+    for idx, frame in enumerate(in_video):
+        if idx >= start_idx and idx <= end_idx:
+            out_video.write(frame)
+
+    del in_video
+    del out_video
 
 
 if __name__ == "__main__":
