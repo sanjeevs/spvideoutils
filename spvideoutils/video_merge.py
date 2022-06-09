@@ -18,7 +18,7 @@ def create_parser():
         description="Merge the frames in png file in dir to a mp4 video file."
     )
     parser.add_argument(
-        "--fps", "-f", default=120, type=int, help="Output video file frame rate."
+        "--fps", "-f", default=20, type=int, help="Output video file frame rate."
     )
     parser.add_argument(
         "--out", "-o", default="merge.mp4", type=str, help="Output video file name."
@@ -36,10 +36,11 @@ def main():
     fnames = [
         os.path.join(opt.frame_dir, f)
         for f in os.listdir(opt.frame_dir)
-        if os.path.isfile(os.path.join(opt.frame_dir, f))
+        if os.path.isfile(os.path.join(opt.frame_dir, f)) and \
+        os.path.splitext(f)[1] == ".png"
     ]
     fnames.sort()
-    print(f"Creating '{opt.out}' from  {len(fnames)} files in '{opt.frame_dir}'")
+    print(f"Creating '{opt.out}' from  {len(fnames)} png files in '{opt.frame_dir}' using fps={opt.fps}")
 
     if len(fnames) == 0:
         raise ValueError("No input frame files")
