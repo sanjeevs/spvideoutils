@@ -4,7 +4,7 @@ Utilities to handle video from camera. Contains various utilites that crop and s
 # Installation
 In your virtual env do
 ```
-$ pip install videoutils
+$ pip install spvideoutils
 ```
 
 # Scripts
@@ -19,8 +19,25 @@ The following scripts are provided by the package.
   * Crops a video file from frame number i to j.
 
 # Developing VideoUtils
-To install videoutils along with the tools you need to develop and run tests, run the following
-in your virtual env.
+This involves 
+* Creating a python virtual env.
+* Downloading the source code from [GitHub](https://github.com/sanjeevs/spvideoutils)
+* Installing all the dependencies
+* Installing the package in dev mode.
+
+For example these are steps I typically do on my windows machine.
 ```commandline
-$ pip install -e .[dev]
+python -m venv venv_dev_spvideoutils  
+env_spvideoutils\Scripts\activate
+git clone https://github.com/sanjeevs/spvideoutils.git
+cd spvideoutils
+pip install -r requirements.txt
+pip install -e . 
+```
+I can check that the env is correctly setup by invoking any of the scripts above from the same window.
+```commandline
+>video_capture
+usage: video_capture [-h] [--index INDEX] [--time TIME] outfile
+video_capture: error: the following arguments are required: outfile
+
 ```
