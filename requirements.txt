@@ -41,7 +41,7 @@ sphinxcontrib-htmlhelp==2.0.0
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
--e git+https://github.com/sanjeevs/spvideoutils.git@a1241fe70a10d84caef3fd9aab98e31beab232cc#egg=spvideoutils
+-e git+https://github.com/sanjeevs/spvideoutils.git@f1482ef271334bdb49f92af760d03cbf65f08c2e#egg=spvideoutils
 tomli==2.0.1
 twine==4.0.0
 urllib3==1.26.9

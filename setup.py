@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="spvideoutils",
-    version="0.0.2",
+    version="0.0.3",
     description="Scripts for saving and splitting video files for other projects",
     long_description=long_description,
     long_description_content_type="text/markdown",

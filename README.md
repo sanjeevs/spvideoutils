@@ -41,3 +41,21 @@ usage: video_capture [-h] [--index INDEX] [--time TIME] outfile
 video_capture: error: the following arguments are required: outfile
 
 ```
+
+# Creating a distribution package
+Check the resource [packaging.python.org](http://packaging.python.org) on  how to build the
+distribution. Since this is a pure python project, I need to just build the bdist_wheel distribution.
+
+* Bump the version of the software in setup.py
+* 
+* Run the script to create the distribution in a new folder called *dist*.
+```commandline
+python setup.py bist_wheel
+```
+* Use twine to upload the source distribution. This will ask for username and password. 
+
+>**_NOTE:_** My pypi username is my git hub username and the password is the same (common).
+
+```commandline
+twine upload dist/*
+```
